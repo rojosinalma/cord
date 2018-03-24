@@ -2,6 +2,9 @@ Ruby Discord Bot
 --
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/elfenars/ruby-discord-bot/tree/master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/5ebae31dbb5232744a4b/maintainability)](https://codeclimate.com/github/elfenars/ruby-discord-bot/maintainability)
+[![Dependency Status](https://gemnasium.com/badges/github.com/elfenars/ruby-discord-bot.svg)](https://gemnasium.com/github.com/elfenars/ruby-discord-bot)
+[![Join Discord](https://img.shields.io/badge/discord-join-7289DA.svg)](https://discord.gg/p8nnyNh)
 
 You can take this as a skelleton for future discord bots made in Ruby.
 
