@@ -1,1 +1,5 @@
-Dir["#{File.dirname(__FILE__)}/app/sinatra/**/*.rb"].each {|file| require file }
+require_all 'app/sinatra/**/*.rb'
+
+configure :production, :development do
+  set :port, configatron.app_port
+end

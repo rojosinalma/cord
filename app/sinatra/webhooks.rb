@@ -1,0 +1,3 @@
+get '/' do
+  "Hello"
+end
