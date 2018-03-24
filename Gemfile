@@ -8,8 +8,8 @@ gem 'discordrb'
 gem 'sinatra'
 gem 'require_all'
 gem 'configatron'
+gem 'dotenv'
 
 group :development do
   gem 'pry-byebug'
-  gem 'dotenv'
 end
