@@ -9,7 +9,7 @@ Discordrb is currently very powerful, but doesn't provide with basic structure a
 
 It doesn't provide tools for easy development of bots either, so the point here is to try to minimize that hassle and just clone this repo and start coding your bot commands.
 
-This repo contains Discordrb and Sinatra. Sinatra is necessary to be able to bing a port to the app (i.e: when deploying to Heroku) or just because you want to have a web interface with some webhooks or even views to interact with the bot outside discord.
+This repo contains Discordrb and Sinatra. Sinatra is necessary to be able to bind a port to the app (i.e: when deploying to Heroku) or just because you want to have a web interface with some webhooks or even views to interact with the bot outside discord.
 
 ## Dependencies:
 
