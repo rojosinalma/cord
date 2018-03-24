@@ -9,3 +9,4 @@ require_all 'config'
 require_all 'lib'
 
 $bot.run :async
+run Sinatra::Webhooks
