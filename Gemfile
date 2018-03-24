@@ -5,11 +5,11 @@ source "https://rubygems.org"
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
 gem 'discordrb'
+gem 'activesupport', require: 'active_support/all'
 gem 'sinatra'
 gem 'require_all'
 gem 'configatron'
 gem 'dotenv'
-gem 'pry-byebug'
 
 group :development do
   gem 'pry-byebug'

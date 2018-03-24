@@ -7,6 +7,8 @@ $bot = Discordrb::Commands::CommandBot.new(
   ignore_bots: true
 )
 
-$bot.include! Discord::Events
-$bot.include! Discord::Commands
-$bot.include! Discord::FunCommands
+# Load all discord containers.
+Dir['./app/discord/**/*.rb'].each do |file|
+  container = file.gsub("./app/","").gsub(".rb","").camelize
+  $bot.include! container.constantize
+end

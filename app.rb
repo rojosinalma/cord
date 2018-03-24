@@ -5,8 +5,7 @@ require     'bundler'
 require     'dotenv/load'
 Bundler.require(:default, ENV["APP_ENV"] || "development")
 
-require_all 'config/*.rb'
-require './lib/discord'
-require './lib/sinatra'
+require_all 'config'
+require_all 'lib'
 
 $bot.run :async
