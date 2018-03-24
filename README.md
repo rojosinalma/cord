@@ -1,6 +1,8 @@
 Ruby Discord Bot
 --
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/elfenars/ruby-discord-bot/tree/master)
+
 You can take this as a skelleton for future discord bots made in Ruby.
 
 Discordrb is currently very powerful, but doesn't provide with basic structure and tools to do efficient deployments to either Heroku or other cloud services.

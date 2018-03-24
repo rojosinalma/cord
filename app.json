@@ -1,0 +1,34 @@
+{
+  "name": "ruby-discord-bot",
+  "description": "A premade skelleton for a discord bot based on discordrb.",
+  "repository": "https://github.com/elfenars/ruby-discord-bot",
+  "logo": "https://discordapp.com/assets/2c21aeda16de354ba5334551a883b481.png",
+  "keywords": ["discord", "bot", "ruby", "sinatra", "heroku", "webhooks"],
+  "env": {
+    "APP_ENV": {
+      "description": "Your Discord Bot token",
+      "value": "production",
+      "required": true
+    },
+    "DISCORD_TOKEN": {
+      "description": "Your Discord Bot Token",
+      "required": true
+    },
+    "DISCORD_CLIENT_ID": {
+      "description": "Your Discord Client ID",
+      "required": true
+    },
+    "DISCORD_OWNER_ID": {
+      "description": "The Discord ID of the server owner",
+      "required": true
+    },
+    "DISCORD_BOT_PREFIX": {
+      "description": "Prefix for bot commands",
+      "value": "!"
+    },
+    "DISCORD_BOT_GAME": {
+      "description": "Game the bot will be playing",
+      "required": false
+    }
+  }
+}
