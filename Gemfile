@@ -9,6 +9,7 @@ gem 'sinatra'
 gem 'require_all'
 gem 'configatron'
 gem 'dotenv'
+gem 'pry-byebug'
 
 group :development do
   gem 'pry-byebug'
