@@ -9,11 +9,11 @@ Discordrb is currently very powerful, but doesn't provide with basic structure a
 
 It doesn't provide tools for easy development of bots either, so the point here is to try to minimize that hassle and just clone this repo and start coding your bot commands.
 
-This repo contains Discordrb and Sinatra. Sinatra is necessary to be able to bing a port to the app (i.e: when deploying to Heroku) or just because you want to have a web interface with some webhooks or even views to interact with the bot outside discord.
+This repo contains Discordrb and Sinatra. Sinatra is not completely necessary, but if you want to deploy to Heroku (or some other cloud service that requires you to bind to a port), you'll need it. It's also a nice option in case you wanna interact with your bot from outside discord through webhooks.
 
 ## Dependencies:
 
-  * Ruby 2.X
+  * Ruby 2.x
   * Same requirements as [Discordrb](https://github.com/meew0/discordrb)
 
 ## Configuration:
@@ -42,7 +42,7 @@ If you want to run this without the webhooks overhead:
   NO_WEBHOOKS=true ruby app.rb
 ```
 
-For easier development you can use rerun and reload your client whenever files change inside the `app/` folder.
+For easier development you can use `rerun` and reload the app whenever files change inside the `app/` folder.
 
 ```ruby
   NO_WEBHOOKS=true rerun ruby app.rb
