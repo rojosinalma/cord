@@ -8,5 +8,7 @@ Bundler.require(:default, ENV["APP_ENV"] || "development")
 require_all 'config'
 require_all 'lib'
 
-$bot.run :async
-run Sinatra::Webhooks
+async = ENV["NO_WEBHOOKS"] ? nil : :async
+
+$bot.run async
+run Sinatra::Webhooks unless ENV["NO_WEBHOOKS"]
