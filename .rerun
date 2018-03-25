@@ -1,3 +1,4 @@
 -b
---dir app/
+--dir app
+--pattern **/.*{rb,js,scss,sass,html,md,erb}
 --notify osx

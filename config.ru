@@ -6,10 +6,6 @@ require     'dotenv/load'
 Bundler.require(:default, ENV["APP_ENV"] || "development")
 
 require_all 'config'
-require_all 'lib'
 
-async = ENV["NO_WEBHOOKS"] ? nil : :async
-
-$bot.run async
-run Sinatra::Webhooks unless ENV["NO_WEBHOOKS"]
-run Sinatra::WebGui
+$bot.run configatron.discord_bot_mode
+Web::Base.run! unless configatron.disable_web
