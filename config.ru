@@ -12,3 +12,4 @@ async = ENV["NO_WEBHOOKS"] ? nil : :async
 
 $bot.run async
 run Sinatra::Webhooks unless ENV["NO_WEBHOOKS"]
+run Sinatra::WebGui
