@@ -13,6 +13,8 @@ module Sinatra
       $bot.stop
       require_rel '../lib/discord.rb'
       erb :config
+      async = ENV["NO_WEBHOOKS"] ? nil : :async
+      $bot.run async
     end
   end
 end
