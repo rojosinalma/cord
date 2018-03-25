@@ -42,13 +42,13 @@ APP_ENV= #development by default, switch to "production", "staging", etc as need
 If you want to run this without the webhooks overhead:
 
 ```ruby
-  NO_WEBHOOKS=true ruby app.rb
+  DISABLE_WEB=true ruby app.rb
 ```
 
 For easier development you can use `rerun` and reload the app whenever files change inside the `app/` folder.
 
 ```ruby
-  NO_WEBHOOKS=true rerun ruby app.rb
+  DISABLE_WEB=true rerun ruby app.rb
 ```
 
 ## Contribute
