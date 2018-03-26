@@ -7,7 +7,3 @@ configatron.discord_bot_game   = ENV["DISCORD_BOT_GAME"]
 configatron.disable_web        = ENV["DISABLE_WEB"] || false
 configatron.discord_bot_mode   = configatron.disable_web ? nil : :async
 
-unless configatron.disable_web
-  configatron.basic_auth_user  = ENV["BASIC_AUTH_USER"] || false
-  configatron.basic_auth_pass  = ENV["BASIC_AUTH_PASS"] || false
-end
