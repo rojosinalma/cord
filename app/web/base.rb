@@ -8,6 +8,8 @@ module Web
                    layout_options: {views: 'app/views/layouts'}
     end
 
+    helpers Web::Helpers
+
     use Web::Hooks
     use Web::Dashboard
 

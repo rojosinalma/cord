@@ -5,12 +5,11 @@ require     'bundler'
 require     'dotenv/load'
 Bundler.require(:default, ENV["APP_ENV"] || "development")
 
-require_all 'config'
+require_all 'config/config.rb', 'config/discord.rb'
 
-unless configatron.web_only
-  $bot.run configatron.discord_bot_mode
-end
+$bot.run configatron.discord.bot_mode
 
-unless configatron.disable_web
+unless configatron.app.disable_web
+  require_all 'config/web.rb'
   Web::Base.run!
 end
