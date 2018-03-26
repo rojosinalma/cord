@@ -12,5 +12,5 @@ unless configatron.web_only
 end
 
 unless configatron.disable_web
-  Web::Base.run! unless configatron.disable_web
+  Web::Base.run!
 end
