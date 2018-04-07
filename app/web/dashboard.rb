@@ -12,7 +12,7 @@ module Web
 
     post '/dashboard/config' do
       set_bot_config(params)
-      #restart_bot
+      restart_bot
       erb :dashboard, :layout => :page,
           :locals => { :success => true }
     end
