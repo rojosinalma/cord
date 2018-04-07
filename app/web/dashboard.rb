@@ -7,13 +7,14 @@ module Web
     end
 
     get '/dashboard' do
-      erb :dashboard
+      erb :dashboard, :layout => :page
     end
 
     post '/dashboard/config' do
       set_bot_config(params)
       restart_bot
-      erb :dashboard
+      erb :dashboard, :layout => :page,
+          :locals => { :success => true }
     end
   end
 end
