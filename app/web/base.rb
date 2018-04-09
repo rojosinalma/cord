@@ -1,18 +1,21 @@
 module Web
   class Base < Sinatra::Base
+    register Sinatra::Namespace
+    helpers  Web::Helpers
+
+    def self.inherited(subclass)
+      super
+      ::Router.use subclass
+    end
+
     configure :production, :development do
       enable :logging
       set    :public_folder, 'app/web/public'
       set    :views,         'app/web/views'
-      set    :erb, escape_html: true,
-                   layout_options: {views: 'app/views/layouts'}
+      set    :erb,           escape_html: true, layout_options: { views: 'app/views/layouts' }
     end
 
-    helpers Web::Helpers
-
-    use Web::Hooks
-    use Web::Dashboard
-
+    # Root route
     get '/' do
       "Hello"
     end
