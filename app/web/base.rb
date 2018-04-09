@@ -12,7 +12,7 @@ module Web
       enable :logging
       set    :public_folder, 'app/web/public'
       set    :views,         'app/web/views'
-      set    :erb,           escape_html: true, layout_options: { views: 'app/views/layouts' }
+      set    :erb,           escape_html: true, layout_options: { views: 'app/web/views/layouts' }
     end
 
     # Root route
