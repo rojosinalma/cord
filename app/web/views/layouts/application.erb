@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/css/bootstrap-reboot.min.css" rel="stylesheet"/>
+    <link href="/css/bootstrap-grids.min.css" rel="stylesheet"/>
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+    <style>
+      body > * {
+        margin: 0 auto;
+        margin-top: 50px;
+        max-width: max-content;
+      }
+    </style>
+  </head>
+
+  <body>
+    <%= yield %>
+    <%= (defined? success) ? '<div class="alert alert-success" role="alert">Success!</div>' : '' %>
+  </body>
+</html>
