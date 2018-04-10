@@ -14,7 +14,9 @@
       }
     </style>
   </head>
+
   <body>
-  <%= yield %>
+    <%= yield %>
+    <%= (defined? success) ? '<div class="alert alert-success" role="alert">Success!</div>' : '' %>
   </body>
 </html>

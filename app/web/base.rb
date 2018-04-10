@@ -9,6 +9,7 @@ module Web
     end
 
     configure :production, :development do
+      enable :sessions
       enable :logging
       set    :public_folder, 'app/web/public'
       set    :views,         'app/web/views'

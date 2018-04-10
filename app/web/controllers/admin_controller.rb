@@ -10,12 +10,10 @@ module Web
       end
 
       post '/config' do
+        halt 401 unless session[:authorized]
         set_bot_config(params)
         restart_bot
-
-        erb :'admin/dashboard',
-          layout: :application,
-          locals: { success: true }
+        redirect_to '/dashboard'
       end
     end
   end

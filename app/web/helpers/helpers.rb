@@ -1,7 +1,11 @@
 module Web
   module Helpers
     def protected!
-      return if authorized?
+      if authorized?
+        session[:authorized] = true
+        return
+      end
+
       headers['WWW-Authenticate'] = 'Basic realm="Restricted Area"'
       halt 401, "Not authorized\n"
     end
