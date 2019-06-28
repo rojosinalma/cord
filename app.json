@@ -6,7 +6,7 @@
   "keywords": ["discord", "bot", "ruby", "sinatra", "heroku", "webhooks"],
   "env": {
     "APP_ENV": {
-      "description": "Your Discord Bot token",
+      "description": "Environment for the bot (testing, staging, production)",
       "value": "production",
       "required": true
     },
