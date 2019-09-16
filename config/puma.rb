@@ -4,7 +4,7 @@ min_threads_count = ENV.fetch("PUMA_MIN_THREADS", max_threads_count)
 
 environment     env
 threads         min_threads_count, max_threads_count
-port            ENV.fetch("BOT_WEB_PORT", 3000)
+port            ENV.fetch("PORT", 3000)
 rackup          'config.ru'
 pidfile         ENV.fetch("PUMA_PIDFILE", 'tmp/pids/puma.pid')
 state_path      ENV.fetch("PUMA_STATE",   'tmp/pids/puma.state')
