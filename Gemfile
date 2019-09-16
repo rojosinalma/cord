@@ -14,7 +14,6 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rake'
   gem 'foreman'
-  gem 'rerun'
 end
 
 group :test do
