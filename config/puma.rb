@@ -6,6 +6,6 @@ environment     env
 threads         min_threads_count, max_threads_count
 port            ENV.fetch("BOT_WEB_PORT", 3000)
 rackup          'config.ru'
-pidfile         'tmp/pids/puma.pid'
-state_path      'tmp/pids/puma.state'
-stdout_redirect('logs/puma_access.log', 'logs/puma_error.log', true) if env == "production"
+pidfile         ENV.fetch("PUMA_PIDFILE", 'tmp/pids/puma.pid')
+state_path      ENV.fetch("PUMA_STATE",   'tmp/pids/puma.state')
+stdout_redirect('logs/puma_access.log',   'logs/puma_error.log', true) if env == "production"
