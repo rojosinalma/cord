@@ -1,15 +1,52 @@
-# Main entrypoint. Things loaded here are available EVERYWHERE.
+$LOAD_PATH.unshift(File.dirname(__FILE__))
 
-require     'rubygems'
-require     'bundler'
-require     'dotenv/load'
-Bundler.require(:default, ENV["APP_ENV"] || "development")
+$env = ENV["BOT_ENV"] || "development"
 
-require_all 'config/config.rb', 'config/discord.rb'
+# Basic setup
+require 'rubygems'
+require 'bundler/setup'
 
-$bot.run configatron.discord.bot_mode
+Bundler.require(:default, $env.to_sym)
+Dotenv.load if defined?(Dotenv)
 
-unless configatron.app.disable_web
-  require_all 'config/web.rb'
-  Web::Base.run!
+# Config & Initializers
+Dir[File.expand_path('config/initializers', __dir__) + '/**/*.rb'].each do |file|
+  require file
 end
+
+# Bot & API stuff
+require 'discord-bot/discord-bot'
+
+# CommandBot  init
+Thread.abort_on_exception = true
+Thread.new do
+  begin
+    client = DiscordBot::CommandBot.client
+
+    client.include! DiscordBot::Commands
+    client.run unless ENV['NOBOT']
+  rescue Exception => e
+    STDERR.puts "ERROR: #{e}"
+    STDERR.puts e.backtrace
+    raise e
+  end
+end
+
+# EventBot  init
+Thread.abort_on_exception = true
+Thread.new do
+  begin
+    client = DiscordBot::EventBot.client
+
+    client.include! DiscordBot::Events
+    client.run unless ENV['NOBOT']
+  rescue Exception => e
+    STDERR.puts "ERROR: #{e}"
+    STDERR.puts e.backtrace
+    raise e
+  end
+end
+
+
+# API init
+run DiscordBot::Web::Base unless ENV['NOWEB']

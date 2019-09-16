@@ -16,7 +16,7 @@ This repo contains Discordrb and Sinatra. Sinatra is not completely necessary, b
 
 ## Dependencies:
 
-  * Ruby 2.x
+  * Ruby 2.6+
   * Same requirements as [Discordrb](https://github.com/meew0/discordrb)
 
 ## Configuration:
@@ -26,19 +26,25 @@ This repo contains Discordrb and Sinatra. Sinatra is not completely necessary, b
 ## Usage:
 
 ```bash
-    $ rackup -p $PORT
+    $ rackup
 ```
 
-If you want to run this without the webhooks overhead:
+If you want to run this without the web overhead:
 
 ```ruby
-  DISABLE_WEB=true ruby app.rb
+  NOWEB=true rackup
+```
+
+Or without the bot itself:
+
+```ruby
+  NOBOT=true rackup
 ```
 
 For easier development you can use `rerun` and reload the app whenever files change inside the `app/` folder.
 
 ```ruby
-  DISABLE_WEB=true rerun ruby app.rb
+  NOWEB=true rerun rackup
 ```
 
 ## Contribute
