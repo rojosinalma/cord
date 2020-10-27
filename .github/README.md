@@ -1,17 +1,21 @@
-Ruby Discord Bot
+Cord
 --
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/elfenars/ruby-discord-bot/tree/master)
-[![Maintainability](https://api.codeclimate.com/v1/badges/5ebae31dbb5232744a4b/maintainability)](https://codeclimate.com/github/elfenars/ruby-discord-bot/maintainability)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/rojosinalma/cord/tree/master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/5ebae31dbb5232744a4b/maintainability)](https://codeclimate.com/github/rojosinalma/cord/maintainability)
 [![Join Discord](https://img.shields.io/badge/discord-join-7289DA.svg)](https://discord.gg/p8nnyNh)
 
-You can take this as a skelleton for future discord bots made in Ruby.
+### What is this?
+
+Cord is a modular Discord bot skelleton which you can easily deploy and extend to your needs.
+
+### Why?
 
 Discordrb is currently very powerful, but doesn't provide with basic structure and tools to do efficient deployments to either Heroku or other cloud services.
 
-It doesn't provide tools for easy development of bots either, so the point here is to try to minimize that hassle and just clone this repo and start coding your bot commands.
+This project uses Discordrb for all things Discord and Sinatra to have a web panel where you can configure some settings.
 
-This repo contains Discordrb and Sinatra. Sinatra is not completely necessary, but if you want to deploy to Heroku (or some other cloud service that requires you to bind to a port), you'll need it. It's also a nice option in case you wanna interact with your bot from outside discord through webhooks.
+Sinatra is not completely necessary, but if you want to deploy to Heroku (or some other cloud service that requires you to bind to a port), you'll need it. It's also a nice option in case you wanna interact with your bot from outside discord through webhooks.
 
 ## Dependencies:
 
@@ -25,19 +29,19 @@ This repo contains Discordrb and Sinatra. Sinatra is not completely necessary, b
 ## Usage:
 
 ```bash
-    $ rackup
+    $ bundle exec rackup
 ```
 
 If you want to run this without the web overhead:
 
 ```ruby
-  NOWEB=true rackup
+  NOWEB=true bundle exec rackup
 ```
 
 Or without the bot itself:
 
 ```ruby
-  NOBOT=true rackup
+  NOBOT=true bundle exec rackup
 ```
 
 ## Contribute

@@ -1,6 +1,6 @@
 require_relative 'events'
 
-module DiscordBot
+module Cord
   class EventBot
     def self.client
       client ||=  Discordrb::Bot.new(

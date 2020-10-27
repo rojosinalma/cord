@@ -1,4 +1,4 @@
-module DiscordBot
+module Cord
   module Web
     class Endpoints < Sinatra::Base
 

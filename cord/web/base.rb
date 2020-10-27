@@ -1,6 +1,6 @@
 require_relative 'endpoints/endpoints'
 
-module DiscordBot
+module Cord
   module Web
     class Base < Sinatra::Base
       configure :production, :development do

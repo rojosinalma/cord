@@ -1,4 +1,4 @@
-module DiscordBot
+module Cord
   module Events
     extend Discordrb::EventContainer
 

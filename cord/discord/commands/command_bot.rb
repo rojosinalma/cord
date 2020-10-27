@@ -1,6 +1,6 @@
-require_relative 'commands'
+Dir[File.join(__dir__, '*.rb')].each { |file| require file }
 
-module DiscordBot
+module Cord
   class CommandBot
     def self.client
       client ||= Discordrb::Commands::CommandBot.new(

@@ -1,9 +1,9 @@
 {
-  "name": "ruby-discord-bot",
-  "description": "A premade skelleton for a discord bot based on discordrb.",
-  "repository": "https://github.com/elfenars/ruby-discord-bot",
+  "name": "cord",
+  "description": "A modular discord bot that can be easily deployed to Heroku or your own server.",
+  "repository": "https://github.com/rojosinalma/cord",
   "logo": "https://discordapp.com/assets/2c21aeda16de354ba5334551a883b481.png",
-  "keywords": ["discord", "bot", "ruby", "sinatra", "heroku", "webhooks"],
+  "keywords": ["discord", "bot", "ruby", "sinatra", "heroku", "webhooks", "discord-bot", "discordrb"],
   "env": {
     "BOT_ENV": {
       "description": "App environment (i.e: production)",

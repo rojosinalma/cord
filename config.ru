@@ -15,15 +15,15 @@ Dir[File.expand_path('config/initializers', __dir__) + '/**/*.rb'].each do |file
 end
 
 # Bot & API stuff
-require 'discord-bot/discord-bot'
+require 'cord/cord'
 
 # CommandBot  init
 Thread.abort_on_exception = true
 Thread.new do
   begin
-    client = DiscordBot::CommandBot.client
+    client = Cord::CommandBot.client
 
-    client.include! DiscordBot::Commands
+    client.include! Cord::Commands
     client.run unless ENV['NOBOT']
   rescue Exception => e
     STDERR.puts "ERROR: #{e}"
@@ -36,9 +36,9 @@ end
 Thread.abort_on_exception = true
 Thread.new do
   begin
-    client = DiscordBot::EventBot.client
+    client = Cord::EventBot.client
 
-    client.include! DiscordBot::Events
+    client.include! Cord::Events
     client.run unless ENV['NOBOT']
   rescue Exception => e
     STDERR.puts "ERROR: #{e}"
@@ -49,4 +49,4 @@ end
 
 
 # API init
-run DiscordBot::Web::Base unless ENV['NOWEB']
+run Cord::Web::Base unless ENV['NOWEB']
