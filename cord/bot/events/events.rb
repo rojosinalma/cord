@@ -15,12 +15,13 @@ module Cord
         return unless event.channel.name == last_entry.target.name
 
         # Fetch info from Discord
-        event_topic = event.channel.topic
-        audit_user  = last_entry.user
-        audit_date  = last_entry.creation_time
-
-        # Fetch names from GH repo.
         begin
+          raise("First letter is not R") if event.channel.topic.chars[0] == "R"
+          event_topic = event.channel.topic
+          audit_user  = last_entry.user
+          audit_date  = last_entry.creation_time
+
+          # Fetch names from GH repo.
           res          = Github.repos.contents.get 'R1sk-Org', 'R1SK', 'names.json'
           content      = JSON.parse(Base64.decode64(res.body.content))
           content_hash = content.kind_of?(Hash) ? content : Hash.new
