@@ -1,5 +1,5 @@
-require_relative 'discord/commands/command_bot'
-require_relative 'discord/events/event_bot'
+require_relative 'bot/commands/command_bot'
+require_relative 'bot/events/event_bot'
 require_relative 'web/base'
 
 module Cord
