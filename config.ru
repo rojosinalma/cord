@@ -35,6 +35,7 @@ Thread.new do
 end
 
 # EventBot  init
+puts "Starting Bot..."
 Thread.abort_on_exception = true
 Thread.new do
   begin
