@@ -9,14 +9,15 @@ module Cord
 
     channel_update do |event|
       # Channel filter
-      if event.channel.name == "helm"
+      channel_name = (ENV["BOT_ENV"] == "development") ? "droid-bay" : "helm"
+      if event.channel.name == channel_name
+
         begin
           $logger.info "Change detected in #helm"
           last_entry = event.server.audit_logs.entries.select{|entry| (entry.action_type == :update) && entry.target_type == :channel}.first
 
           # Audit log filter
           return unless event.channel.name == last_entry.target.name
-
           # Fetch info from Discord
           raise("First letter is not R") if event.channel.topic.chars[0] == "R"
           event_topic = event.channel.topic
@@ -39,12 +40,13 @@ module Cord
             content         = { names: updated_content }
 
             $logger.info("DEBUG\n --event_topic: #{event_topic}, --audit_user: #{audit_user}, --date: #{audit_date.strftime("%m/%d/%Y")}")
+
             Github.repos.contents.update('R1SK-Org', 'R1SK', 'names.json', path: 'names.json', content: content.to_json, message: "New topic from Discord", sha: res.body.sha )
           end
 
         rescue => e
           $logger.error "Catched error: #{e.message}"
-          return # Fail semi-silently
+          # Fail semi-silently
         end
       end
 
