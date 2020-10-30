@@ -2,6 +2,8 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 
 $env = ENV["BOT_ENV"] || "development"
 
+$stdout.sync = true
+
 # Basic setup
 require 'rubygems'
 require 'bundler/setup'
