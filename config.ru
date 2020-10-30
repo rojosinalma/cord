@@ -7,7 +7,7 @@ require 'rubygems'
 require 'bundler/setup'
 require 'logger'
 
-$logger       = $env == "production" ? Logger.new('logs/logfile.log') : Logger.new(STDOUT)
+$logger       = Logger.new(STDOUT)
 $logger.level = Logger::DEBUG
 
 Bundler.require(:default, $env.to_sym)
@@ -22,7 +22,7 @@ end
 require 'cord/cord'
 
 # CommandBot  init
-$logger.info "* Starting Command Bot..."
+$logger.info "* Starting CommandBot thread"
 
 Thread.abort_on_exception = true
 Thread.new do
@@ -32,14 +32,14 @@ Thread.new do
     client.include! Cord::Commands
     client.run unless ENV['NOBOT']
   rescue Exception => e
-    $logger.info "ERROR: #{e}"
-    $logger.info e.backtrace
+    $logger.error "ERROR: #{e}"
+    $logger.error e.backtrace
     raise e
   end
 end
 
 # EventBot  init
-$logger.info "* Starting Event Bot..."
+$logger.info "* Starting EventBot thread"
 
 Thread.abort_on_exception = true
 Thread.new do
@@ -49,13 +49,13 @@ Thread.new do
     client.include! Cord::Events
     client.run unless ENV['NOBOT']
   rescue Exception => e
-    $logger.info "ERROR: #{e}"
-    $logger.info e.backtrace
+    $logger.error "ERROR: #{e}"
+    $logger.error e.backtrace
     raise e
   end
 end
 
 
 # API init
-$logger.info "* Starting Bot API..."
+$logger.info "* Starting Bot Web"
 run Cord::Web::Base unless ENV['NOWEB']

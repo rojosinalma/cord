@@ -29,6 +29,10 @@
     "DISCORD_BOT_GAME": {
       "description": "Game the bot will be playing",
       "required": false
+    },
+    "GH_OAUTH_TOKEN": {
+      "description": "OAuth Token for Github integration",
+      "required": false
     }
   }
 }

@@ -4,7 +4,7 @@ module Cord
 
     # Meant to use locally only.
     command :debug, help_available: false do |event, *args|
-      return "Nope!" unless $bot_env == "development"
+      return "Nope!" unless $env == "development"
       binding.pry
     end
   end
