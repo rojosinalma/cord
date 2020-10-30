@@ -4,12 +4,12 @@ module Cord
 
     ready do |event|
       event.bot.game = ENV['DISCORD_BOT_GAME']
-      puts "Bot ready!"
+      $logger.info "Bot ready!"
     end
 
     channel_update do |event|
       # Channel filter
-      channel_name = (ENV["BOT_ENV"] == "development") ? "droid-bay" : "helm"
+      channel_name = ($env == "development") ? "droid-bay" : "helm"
       if event.channel.name == channel_name
 
         begin

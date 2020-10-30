@@ -7,7 +7,7 @@ require 'rubygems'
 require 'bundler/setup'
 require 'logger'
 
-$logger       = Logger.new('logs/logfile.log')
+$logger       = $env == "production" ? Logger.new('logs/logfile.log') : Logger.new(STDOUT)
 $logger.level = Logger::DEBUG
 
 Bundler.require(:default, $env.to_sym)
