@@ -1,12 +1,14 @@
 $LOAD_PATH.unshift(File.dirname(__FILE__))
-
 $env = ENV["BOT_ENV"] || "development"
-
 $stdout.sync = true
 
 # Basic setup
 require 'rubygems'
 require 'bundler/setup'
+require 'logger'
+
+$logger       = Logger.new('logfile.log')
+$logger.level = Logger::DEBUG
 
 Bundler.require(:default, $env.to_sym)
 Dotenv.load if defined?(Dotenv)
@@ -20,6 +22,8 @@ end
 require 'cord/cord'
 
 # CommandBot  init
+$logger.info "* Starting Command Bot..."
+
 Thread.abort_on_exception = true
 Thread.new do
   begin
@@ -28,14 +32,15 @@ Thread.new do
     client.include! Cord::Commands
     client.run unless ENV['NOBOT']
   rescue Exception => e
-    STDERR.puts "ERROR: #{e}"
-    STDERR.puts e.backtrace
+    $logger.info "ERROR: #{e}"
+    $logger.info e.backtrace
     raise e
   end
 end
 
 # EventBot  init
-puts "Starting Bot..."
+$logger.info "* Starting Event Bot..."
+
 Thread.abort_on_exception = true
 Thread.new do
   begin
@@ -44,12 +49,13 @@ Thread.new do
     client.include! Cord::Events
     client.run unless ENV['NOBOT']
   rescue Exception => e
-    STDERR.puts "ERROR: #{e}"
-    STDERR.puts e.backtrace
+    $logger.info "ERROR: #{e}"
+    $logger.info e.backtrace
     raise e
   end
 end
 
 
 # API init
+$logger.info "* Starting Bot API..."
 run Cord::Web::Base unless ENV['NOWEB']

@@ -10,14 +10,14 @@ module Cord
     channel_update do |event|
       # Channel filter
       if event.channel.name == "helm"
-        STDOUT.puts "Change detected in #helm"
-        last_entry = event.server.audit_logs.entries.select{|entry| (entry.action_type == :update) && entry.target_type == :channel}.first
-
-        # Audit log filter
-        return unless event.channel.name == last_entry.target.name
-
-        # Fetch info from Discord
         begin
+          $logger.info "Change detected in #helm"
+          last_entry = event.server.audit_logs.entries.select{|entry| (entry.action_type == :update) && entry.target_type == :channel}.first
+
+          # Audit log filter
+          return unless event.channel.name == last_entry.target.name
+
+          # Fetch info from Discord
           raise("First letter is not R") if event.channel.topic.chars[0] == "R"
           event_topic = event.channel.topic
           audit_user  = last_entry.user
@@ -31,22 +31,24 @@ module Cord
           raise("Empty names.json") if content_hash.fetch('names', []).last.nil?
 
           last_topic   = content_hash['names'].last['name'] unless content_hash.fetch('names', []).last.nil?
+
+
+          # Save to Github
+          unless (event_topic == last_topic)
+            updated_content = content_hash['names'].push({ "name" => event_topic, "author" => audit_user.username, "date" => audit_date.strftime("%m/%d/%Y") })
+            content         = { names: updated_content }
+
+            $logger.info("DEBUG\n --event_topic: #{event_topic}, --audit_user: #{audit_user}, --date: #{audit_date.strftime("%m/%d/%Y")}")
+            Github.repos.contents.update('R1SK-Org', 'R1SK', 'names.json', path: 'names.json', content: content.to_json, message: "New topic from Discord", sha: res.body.sha )
+          end
+
         rescue => e
-          STDOUT.puts "Catched error: #{e.message}"
+          $logger.error "Catched error: #{e.message}"
           return # Fail semi-silently
-        end
-
-        # Save to Github
-        unless (event_topic == last_topic)
-          updated_content = content_hash['names'].push({ "name" => event_topic, "author" => audit_user.username, "date" => audit_date.strftime("%m/%d/%Y") })
-          content         = { names: updated_content }
-
-          STDOUT.puts("DEBUG\n --event_topic: #{event_topic}, --audit_user: #{audit_user}, --date: #{audit_date.strftime("%m/%d/%Y")}")
-          Github.repos.contents.update('R1SK-Org', 'R1SK', 'names.json', path: 'names.json', content: content.to_json, message: "New topic from Discord", sha: res.body.sha )
         end
       end
 
-      STDOUT.puts "Change detected outside of #helm"
+      $logger.info "Change detected outside of #helm"
     end
   end
 end
