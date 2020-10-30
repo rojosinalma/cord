@@ -8,4 +8,4 @@ port            ENV.fetch("PORT", 3000)
 rackup          'config.ru'
 pidfile         ENV.fetch("PUMA_PIDFILE", 'tmp/pids/puma.pid')
 state_path      ENV.fetch("PUMA_STATE",   'tmp/pids/puma.state')
-stdout_redirect('logs/puma_access.log',   'logs/puma_error.log', true) if env == "production"
+#stdout_redirect('logs/puma_access.log',   'logs/puma_error.log', true) if env == "production"
