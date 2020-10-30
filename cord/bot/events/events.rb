@@ -39,7 +39,7 @@ module Cord
             updated_content = content_hash['names'].push({ "name" => event_topic, "author" => audit_user.username, "date" => audit_date.strftime("%m/%d/%Y") })
             content         = { names: updated_content }
 
-            $logger.info("DEBUG\n --event_topic: #{event_topic}, --audit_user: #{audit_user}, --date: #{audit_date.strftime("%m/%d/%Y")}")
+            $logger.info("DEBUG INFO: event_topic: #{event_topic} | audit_user: #{audit_user.username} | date: #{audit_date.strftime("%m/%d/%Y")}")
 
             Github.repos.contents.update('R1SK-Org', 'R1SK', 'names.json', path: 'names.json', content: content.to_json, message: "New topic from Discord", sha: res.body.sha )
           end
