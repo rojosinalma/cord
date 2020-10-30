@@ -30,7 +30,7 @@ module Cord
 
           last_topic   = content_hash['names'].last['name'] unless content_hash.fetch('names', []).last.nil?
         rescue => e
-          puts "Catched error: #{e.message}"
+          STDOUT.puts "Catched error: #{e.message}"
           return # Fail semi-silently
         end
 
