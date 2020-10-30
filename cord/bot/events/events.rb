@@ -4,6 +4,7 @@ module Cord
 
     ready do |event|
       event.bot.game = ENV['DISCORD_BOT_GAME']
+      puts "Bot ready!"
     end
 
     channel_update do |event|
