@@ -9,6 +9,7 @@ module Cord
     channel_update do |event|
       # Channel filter
       if event.channel.name == "helm"
+        STDOUT.puts "Change detected in #helm"
         last_entry = event.server.audit_logs.entries.select{|entry| (entry.action_type == :update) && entry.target_type == :channel}.first
 
         # Audit log filter
@@ -39,9 +40,12 @@ module Cord
           updated_content = content_hash['names'].push({ "name" => event_topic, "author" => audit_user.username, "date" => audit_date.strftime("%m/%d/%Y") })
           content         = { names: updated_content }
 
+          STDOUT.puts("DEBUG\n --event_topic: #{event_topic}, --audit_user: #{audit_user}, --date: #{audit_date.strftime("%m/%d/%Y")}")
           Github.repos.contents.update('R1SK-Org', 'R1SK', 'names.json', path: 'names.json', content: content.to_json, message: "New topic from Discord", sha: res.body.sha )
         end
       end
+
+      STDOUT.puts "Change detected outside of #helm"
     end
   end
 end
