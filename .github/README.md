@@ -24,7 +24,6 @@ You deploy the bot and extend it with your own commands or events. I assume you 
 ## I will not teach you how to code commands or events, how to use Sinatra or how to code.
 
 
-
 ## Dependencies:
 
   * Ruby 2.6+
