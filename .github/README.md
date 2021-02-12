@@ -17,6 +17,12 @@ This project uses Discordrb for all things Discord and Sinatra to have a web pan
 
 Sinatra is not completely necessary, but if you want to deploy to Heroku (or some other cloud service that requires you to bind to a port), you'll need it. It's also a nice option in case you wanna interact with your bot from outside discord through webhooks.
 
+### How?
+
+You deploy the bot and extend it with your own commands or events. I assume you know how to code in Ruby and you've done your homework with Discordrb.
+
+**I will not teach you how to code commands or events, neither teach you how to code in Ruby.**
+
 ## Dependencies:
 
   * Ruby 2.6+
