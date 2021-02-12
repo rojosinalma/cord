@@ -21,8 +21,8 @@ Sinatra is not completely necessary, but if you want to deploy to Heroku (or som
 
 You deploy the bot and extend it with your own commands or events. I assume you know how to code in Ruby and you've done your homework with Discordrb.
 
-## I will not teach you how to create commands or events, how to use Sinatra or how to code.
-
+## I will help you in setting up the bot, troubleshooting the current structure and maybe give you tips.
+## I will not teach you how to create commands or events, how to use Sinatra or how to code. 
 
 ## Dependencies:
 
