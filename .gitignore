@@ -20,6 +20,6 @@
 /vendor/bundle
 /lib/bundler/man/
 .rvmrc
-log/**
+logs/**
 tmp/**
 !*/.keep
