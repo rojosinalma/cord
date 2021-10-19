@@ -3,7 +3,6 @@ Cord
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/rojosinalma/cord/tree/master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/5ebae31dbb5232744a4b/maintainability)](https://codeclimate.com/github/rojosinalma/cord/maintainability)
-[![Join Discord](https://img.shields.io/badge/discord-join-7289DA.svg)](https://discord.gg/p8nnyNh)
 
 ### What is this?
 
@@ -17,6 +16,10 @@ This project uses Discordrb for all things Discord and Sinatra to have a web pan
 
 Sinatra is not completely necessary, but if you want to deploy to Heroku (or some other cloud service that requires you to bind to a port), you'll need it. It's also a nice option in case you wanna interact with your bot from outside discord through webhooks.
 
+### How?
+
+You deploy the bot and extend it with your own commands or events. I assume you know how to code in Ruby and you've done your homework with Discordrb.
+
 ## Dependencies:
 
   * Ruby 2.6+
@@ -29,19 +32,9 @@ Sinatra is not completely necessary, but if you want to deploy to Heroku (or som
 ## Usage:
 
 ```bash
-    $ bundle exec rackup
-```
-
-If you want to run this without the web overhead:
-
-```ruby
-  NOWEB=true bundle exec rackup
-```
-
-Or without the bot itself:
-
-```ruby
-  NOBOT=true bundle exec rackup
+  $ bundle exec puma -C config/puma.rb 
+  # or 
+  $ bundle exec rackup 
 ```
 
 ## Contribute
