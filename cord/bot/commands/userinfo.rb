@@ -4,7 +4,7 @@ module Cord
 
     # Meant to use locally only.
     command :userinfo, help_available: false do |event, *args|
-      event.respond "Ah Ah Ah! you didn't say the magic word!\n (No eris admin sapo ql y la ctm teoiasacarlachucha)" and break unless "#{event.user.id}" == $owner_id
+      event.respond "Ah Ah Ah! you didn't say the magic word!" and break unless "#{event.user.id}" == $owner_id
 
       mention_id = args.first.to_id
       if event.server.members.include? mention_id

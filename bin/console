@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'rubygems'
+require 'bundler/setup'
+
+$env = ENV["BOT_ENV"] || "development"
+Bundler.require(:default, $env.to_sym)
+Dotenv.load if defined?(Dotenv)
+
+require_relative '../cord/cord'
+
+def reload!(print = true)
+  puts 'Reloading ...' if print
+
+  root_dir    = File.expand_path('..', __dir__) # Main project directory.
+  reload_dirs = %w{cord app config} # Directories within the project that should be reloaded.
+
+  # Loop through and reload every file in all relevant project directories.
+  reload_dirs.each do |dir|
+    Dir.glob("#{root_dir}/#{dir}/**/*.rb").each { |f| load(f) }
+  end
+
+  true
+end
+
+opts = Pry::CLI.parse_options
+Pry::CLI.start(opts)

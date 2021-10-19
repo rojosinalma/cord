@@ -2,7 +2,7 @@ module Cord
   module Commands
     extend Discordrb::Commands::CommandContainer
 
-    desc  = "Deletes X amount of messages from the channel"
+    desc  = "Deletes X amount of messages from the channel [Admin Only]"
     usage = "#{$prefix}prune <number>"
     command :prune, description: desc, usage: usage, allowed_roles: @admin_roles do |event, amount|
       amount = amount.to_i
