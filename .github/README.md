@@ -32,19 +32,9 @@ You deploy the bot and extend it with your own commands or events. I assume you 
 ## Usage:
 
 ```bash
-    $ bundle exec rackup
-```
-
-If you want to run this without the web overhead:
-
-```ruby
-  NOWEB=true bundle exec rackup
-```
-
-Or without the bot itself:
-
-```ruby
-  NOBOT=true bundle exec rackup
+  $ bundle exec puma -C config/puma.rb 
+  # or 
+  $ bundle exec rackup 
 ```
 
 ## Contribute

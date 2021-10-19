@@ -24,7 +24,7 @@ Thread.new do
     client = Cord::CommandBot.client
 
     client.include! Cord::Commands
-    client.run unless ENV['NOBOT']
+    client.run
   rescue Exception => e
     STDERR.puts "ERROR: #{e}"
     STDERR.puts e.backtrace
@@ -39,7 +39,7 @@ Thread.new do
     client = Cord::EventBot.client
 
     client.include! Cord::Events
-    client.run unless ENV['NOBOT']
+    client.run
   rescue Exception => e
     STDERR.puts "ERROR: #{e}"
     STDERR.puts e.backtrace
@@ -47,6 +47,5 @@ Thread.new do
   end
 end
 
-
 # API init
-run Cord::Web::Base unless ENV['NOWEB']
+run Cord::Web::Base
