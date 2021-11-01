@@ -7,7 +7,7 @@ module Cord
     usage = "#{$prefix}time"
     command :time, description: desc, usage: usage do |event, *args|
       time_gmt      = Time.now.getgm
-      berlin_tz     = time_gmt.getlocal("+02:00").strftime("%d/%m/%Y - %H:%M (UTC%z)")
+      berlin_tz     = time_gmt.getlocal("+01:00").strftime("%d/%m/%Y - %H:%M (UTC%z)")
       santiago_tz   = time_gmt.getlocal("-03:00").strftime("%d/%m/%Y - %H:%M (UTC%z)")
       cdmx_tz       = time_gmt.getlocal("-05:00").strftime("%d/%m/%Y - %H:%M (UTC%z)")
       sydney_tz     = time_gmt.getlocal("+11:00").strftime("%d/%m/%Y - %H:%M (UTC%z)")
