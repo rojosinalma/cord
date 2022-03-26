@@ -1,0 +1,7 @@
+cord:
+  container_name: cord
+  build: .
+  image: rojosinalma/cord:latest
+  restart: unless-stopped
+  env_file:
+    - .env
