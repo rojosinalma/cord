@@ -1,6 +1,6 @@
-FROM ruby:3.0.2-alpine3.14
+FROM ruby:3.1.1-alpine3.14
 
-WORKDIR /usr/src/f1x
+WORKDIR /app/f1x
 COPY . .
 
 # throw errors if Gemfile has been modified since Gemfile.lock
