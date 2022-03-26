@@ -14,9 +14,8 @@ Bundler.require(:default, $env.to_sym)
 Dotenv.load if defined?(Dotenv)
 
 # Config & Initializers
-Dir[File.expand_path('config/initializers', __dir__) + '/**/*.rb'].each do |file|
-  require file
-end
+$LOAD_PATH.unshift File.expand_path('lib')
+Dir.glob('config/initializers/**/*.rb').sort.each { |path| require(path) }
 
 # Bot & API stuff
 require 'cord/cord'

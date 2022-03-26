@@ -10,6 +10,7 @@ gem 'activesupport',   require: 'active_support/all'
 gem 'sinatra',         require: 'sinatra/base'
 gem 'sinatra-contrib'
 gem 'github_api'
+gem 'httparty'
 
 group :development, :test do
   gem 'pry-byebug'
